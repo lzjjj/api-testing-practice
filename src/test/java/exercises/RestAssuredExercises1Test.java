@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.not;
 
 
 public class RestAssuredExercises1Test {
@@ -54,7 +55,7 @@ public class RestAssuredExercises1Test {
                 .when()
                 .get( "/incorrect.json" )
                 .then()
-                .statusCode(404);
+                .statusCode( 404 );
 
     }
 
@@ -72,9 +73,9 @@ public class RestAssuredExercises1Test {
                 .get( "/2016/drivers.json" )
                 .then()
                 .assertThat()
-                .statusCode(200)
+                .statusCode( 200 )
                 .and()
-                .contentType(ContentType.JSON);
+                .contentType( ContentType.JSON );
     }
 
     /***********************************************
@@ -93,7 +94,7 @@ public class RestAssuredExercises1Test {
                 .get( "/2014/1/circuits.json" )
                 .then()
                 .assertThat()
-                .body("MRData.CircuitTable.Circuits[0].circuitId", equalTo("albert_park"));
+                .body( "MRData.CircuitTable.Circuits[0].circuitId", equalTo( "albert_park" ) );
     }
 
     /***********************************************
@@ -111,7 +112,7 @@ public class RestAssuredExercises1Test {
                 .get( "/2014/circuits.json" )
                 .then()
                 .assertThat()
-                .body(containsString( "silverstone" ));
+                .body( containsString( "silverstone" ) );
     }
 
     /***********************************************
@@ -126,8 +127,10 @@ public class RestAssuredExercises1Test {
 
         given().
                 spec( requestSpec ).
-                when().
-
-                then();
+                when()
+                .get( "/2014/circuits.json" )
+                .then()
+                .assertThat()
+                .body( not( "silverstone" ) );
     }
 }
