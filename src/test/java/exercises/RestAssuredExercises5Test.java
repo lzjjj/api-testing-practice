@@ -72,7 +72,10 @@ public class RestAssuredExercises5Test {
         given().
                 spec( requestSpec ).
                 when().
-                then();
+                get( "/xml/speedrecords" ).
+                then().
+                assertThat()
+                .body("speedRecords.car[1].@country",equalTo("UK"));
     }
 
     /*******************************************************
