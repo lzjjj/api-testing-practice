@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 
 
@@ -107,9 +108,10 @@ public class RestAssuredExercises1Test {
         given().
                 spec( requestSpec ).
                 when()
-                .get( "/2014/1/circuits.json" )
+                .get( "/2014/circuits.json" )
                 .then()
-                .body("md5", equalTo("7489a25fc99976f06fecb807991c61cf"));
+                .assertThat()
+                .body(containsString( "silverstone" ));
     }
 
     /***********************************************
