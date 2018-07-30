@@ -101,7 +101,10 @@ public class RestAssuredExercises2Test {
 
         given().
                 spec( requestSpec ).
-                when().
-                then();
+                when()
+                .get("/2015/1/drivers/max_verstappen/pitstops.json")
+                .then()
+        .assertThat()
+        .body( "MRData.RaceTable.Races.PitStops.size()",equalTo( 1 ) );
     }
 }
