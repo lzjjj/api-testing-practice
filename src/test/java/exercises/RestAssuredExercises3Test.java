@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 public class RestAssuredExercises3Test {
 
@@ -26,9 +28,9 @@ public class RestAssuredExercises3Test {
     static void createRequestSpecification() {
 
         requestSpec = new RequestSpecBuilder().
-                setBaseUri("http://localhost").
-                setPort(9876).
-                setBasePath("/api/f1").
+                setBaseUri( "http://localhost" ).
+                setPort( 9876 ).
+                setBasePath( "/api/f1" ).
                 build();
     }
 
@@ -47,9 +49,9 @@ public class RestAssuredExercises3Test {
     static void createResponseSpecification() {
         responseSpec =
                 new ResponseSpecBuilder().
-                        expectStatusCode(200).
-                        expectContentType(ContentType.JSON)
-                        .expectBody( "MRData.CircuitTable.Circuits.circuitName[0]",equalTo("Albert Park Grand Prix Circuit") )
+                        expectStatusCode( 200 ).
+                        expectContentType( ContentType.JSON )
+                        .expectBody( "MRData.CircuitTable.Circuits.circuitName[0]", equalTo( "Albert Park Grand Prix Circuit" ) )
                         .build();
 
     }
@@ -68,13 +70,12 @@ public class RestAssuredExercises3Test {
         ninthDriverId = given()
                 .spec( requestSpec )
                 .when()
-                .get("/2016/drivers.json")
+                .get( "/2016/drivers.json" )
                 .then()
-                .contentType(ContentType.JSON)
+                .contentType( ContentType.JSON )
                 .extract()
                 .path( "MRData.DriverTable.Drivers[8].driverId" );
-        System.out.println(ninthDriverId);
-
+        assertThat( ninthDriverId, is( "vettel" ) );
     }
 
     /*******************************************************
@@ -88,10 +89,14 @@ public class RestAssuredExercises3Test {
     @Test
     public void useResponseSpecification() {
 
-        given().
-                spec(requestSpec).
-                when().
-                then();
+        String locality = given().
+                spec( requestSpec ).
+                when()
+                .get( "/2014/1/circuits.json" )
+                .then()
+                .extract()
+                .path( "MRData.CircuitTable.Circuits[0].Location.locality" );
+        assertThat( locality, is( "Melbourne" ) );
     }
 
     /*******************************************************
@@ -105,8 +110,12 @@ public class RestAssuredExercises3Test {
     public void useExtractedDriverId() {
 
         given().
-                spec(requestSpec).
-                when().
-                then();
+                spec( requestSpec )
+                .pathParam( "driverId", ninthDriverId )
+                .when()
+                .get( "/drivers/{driverId}.json" )
+                .then()
+                .assertThat()
+                .body( "MRData.DriverTable.Drivers[0].nationality", is( "German" ) );
     }
 }
