@@ -18,15 +18,15 @@ public class RestAssuredExercises2Test {
 
     private static RequestSpecification requestSpec;
 
-    static Stream<Arguments> circuitDataProvider() {
+    static Stream <Arguments> circuitDataProvider() {
         return Stream.of(
-                Arguments.of("monza", "monza")
+                Arguments.of( "monza", "monza" )
         );
     }
 
-    static Stream<Arguments> circuitDataProvider_1() {
+    static Stream <Arguments> circuitDataProvider_1() {
         return Stream.of(
-                Arguments.of("monza", "Italy")
+                Arguments.of( "monza", "Italy" )
         );
     }
 
@@ -52,7 +52,7 @@ public class RestAssuredExercises2Test {
     public void checkCountryForItaly(String circuitName, String country) {
 
         given()
-                .pathParam( "country", circuitName)
+                .pathParam( "country", circuitName )
                 .spec( requestSpec )
                 .when()
                 .get( "/circuits/{country}.json" )
@@ -80,7 +80,7 @@ public class RestAssuredExercises2Test {
     public void checkCountryForCircuit(String circuitName, String circuitId) {
 
         given()
-                .pathParam( "country", circuitName)
+                .pathParam( "country", circuitName )
                 .spec( requestSpec )
                 .when()
                 .get( "/circuits/{country}.json" )
@@ -102,9 +102,9 @@ public class RestAssuredExercises2Test {
         given().
                 spec( requestSpec ).
                 when()
-                .get("/2015/1/drivers/max_verstappen/pitstops.json")
+                .get( "/2015/1/drivers/max_verstappen/pitstops.json" )
                 .then()
-        .assertThat()
-        .body( "MRData.RaceTable.Races.PitStops.size()",equalTo( 1 ) );
+                .assertThat()
+                .body( "MRData.RaceTable.Races[0].PitStops.size()", equalTo( 1 ) );
     }
 }
