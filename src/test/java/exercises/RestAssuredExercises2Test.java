@@ -4,6 +4,11 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -12,6 +17,18 @@ import static org.hamcrest.Matchers.equalTo;
 public class RestAssuredExercises2Test {
 
     private static RequestSpecification requestSpec;
+
+    static Stream<Arguments> circuitDataProvider() {
+        return Stream.of(
+                Arguments.of("monza", "monza")
+        );
+    }
+
+    static Stream<Arguments> circuitDataProvider_1() {
+        return Stream.of(
+                Arguments.of("monza", "Italy")
+        );
+    }
 
     @BeforeAll
     public static void createRequestSpecification() {
@@ -30,7 +47,19 @@ public class RestAssuredExercises2Test {
      * is in Italy, for example)
      ******************************************************/
 
-    //todo
+    @ParameterizedTest
+    @MethodSource("circuitDataProvider_1")
+    public void checkCountryForItaly(String circuitName, String country) {
+
+        given()
+                .pathParam( "country", circuitName)
+                .spec( requestSpec )
+                .when()
+                .get( "/circuits/{country}.json" )
+                .then()
+                .assertThat()
+                .body( "MRData.CircuitTable.Circuits[0].Location.country", equalTo( country ) );
+    }
 
     /*******************************************************
      * Use junit-jupiter-params for @ParameterizedTest that specifies for all races
@@ -46,18 +75,18 @@ public class RestAssuredExercises2Test {
      * is /circuits/monza.json)
      * and check the country this circuit can be found in
      ******************************************************/
-
-    @Test
-    public void checkCountryForCircuit() {
+    @ParameterizedTest
+    @MethodSource("circuitDataProvider")
+    public void checkCountryForCircuit(String circuitName, String circuitId) {
 
         given()
-                .pathParam( "country", "monza" )
+                .pathParam( "country", circuitName)
                 .spec( requestSpec )
                 .when()
                 .get( "/circuits/{country}.json" )
                 .then()
                 .assertThat()
-                .body( "MRData.CircuitTable.Circuits[0].circuitId", equalTo( "monza" ) );
+                .body( "MRData.CircuitTable.Circuits[0].circuitId", equalTo( circuitId ) );
     }
 
     /*******************************************************
