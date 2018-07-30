@@ -1,6 +1,7 @@
 package exercises;
 
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -46,8 +47,8 @@ public class RestAssuredExercises1Test {
     @Test
     public void checkResponseCodeForIncorrectRequest() {
 
-        given().
-                spec( requestSpec )
+        given()
+                .spec( requestSpec )
                 .when()
                 .get( "/incorrect.json" )
                 .then()
@@ -63,10 +64,15 @@ public class RestAssuredExercises1Test {
     @Test
     public void checkResponseContentTypeJson() {
 
-        given().
-                spec( requestSpec ).
-                when().
-                then();
+        given()
+                .spec( requestSpec )
+                .when()
+                .get( "/2016/drivers.json" )
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .and()
+                .contentType(ContentType.JSON);
     }
 
     /***********************************************
