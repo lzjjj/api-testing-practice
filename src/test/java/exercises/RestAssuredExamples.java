@@ -7,6 +7,7 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,6 @@ public class RestAssuredExamples {
 
     private static String myAuthenticationToken;
 
-    /*
     @BeforeClass
     public static void retrieveToken() {
 
@@ -45,7 +45,6 @@ public class RestAssuredExamples {
                 extract().
                 path("");
     }
-    */
 
     /*
     Main Points:
