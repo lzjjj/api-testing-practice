@@ -75,7 +75,7 @@ public class RestAssuredExercises5Test {
                 get( "/xml/speedrecords" ).
                 then().
                 assertThat()
-                .body("speedRecords.car[1].@country",equalTo("UK"));
+                .body("speedRecords.car.findAll{it.@country == 'UK'}.size()",equalTo(3));
     }
 
     /*******************************************************
@@ -91,7 +91,10 @@ public class RestAssuredExercises5Test {
         given().
                 spec( requestSpec ).
                 when().
-                then();
+                get( "/xml/speedrecords" ).
+                then().
+                assertThat()
+                .body("speedRecords.car.findAll{it.@country == 'Italy' || it.@country =='Germany' }.size()",equalTo(4));
     }
 
     /*******************************************************
@@ -107,6 +110,9 @@ public class RestAssuredExercises5Test {
         given().
                 spec( requestSpec ).
                 when().
-                then();
+                get( "/xml/speedrecords" ).
+                then().
+                assertThat()
+                .body("speedRecords.car.@make.grep(~/.*Benz/).size()",equalTo(2));
     }
 }
