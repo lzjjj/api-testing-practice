@@ -16,9 +16,9 @@ public class RestAssuredExercises1Test {
     public static void createRequestSpecification() {
 
         requestSpec = new RequestSpecBuilder().
-                setBaseUri("http://localhost").
-                setPort(9876).
-                setBasePath("/api/f1").
+                setBaseUri( "http://localhost" ).
+                setPort( 9876 ).
+                setBasePath( "/api/f1" ).
                 build();
     }
 
@@ -31,11 +31,11 @@ public class RestAssuredExercises1Test {
     public void checkResponseCodeForCorrectRequest() {
 
         given().
-                spec(requestSpec).
+                spec( requestSpec ).
                 when().
-                get("/2016/drivers.json").
+                get( "/2016/drivers.json" ).
                 then().
-                statusCode(200);
+                statusCode( 200 );
     }
 
     /*******************************************************
@@ -47,9 +47,12 @@ public class RestAssuredExercises1Test {
     public void checkResponseCodeForIncorrectRequest() {
 
         given().
-                spec(requestSpec).
-                when().
-                then();
+                spec( requestSpec )
+                .when()
+                .get( "/incorrect.json" )
+                .then()
+                .statusCode(404);
+
     }
 
     /*******************************************************
@@ -61,7 +64,7 @@ public class RestAssuredExercises1Test {
     public void checkResponseContentTypeJson() {
 
         given().
-                spec(requestSpec).
+                spec( requestSpec ).
                 when().
                 then();
     }
@@ -77,7 +80,7 @@ public class RestAssuredExercises1Test {
     public void checkTheFirstRaceOf2014WasAtAlbertPark() {
 
         given().
-                spec(requestSpec).
+                spec( requestSpec ).
                 when().
                 then();
     }
@@ -92,7 +95,7 @@ public class RestAssuredExercises1Test {
     public void checkThereWasARaceAtSilverstoneIn2014() {
 
         given().
-                spec(requestSpec).
+                spec( requestSpec ).
                 when().
                 then();
     }
@@ -108,7 +111,7 @@ public class RestAssuredExercises1Test {
     public void checkThereWasNoRaceAtNurburgringIn2014() {
 
         given().
-                spec(requestSpec).
+                spec( requestSpec ).
                 when().
 
                 then();
