@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bdb9ff0-b4f3-4127-9185-37e70c748d23" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/exercises/RestAssuredExercises2Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/exercises/RestAssuredExercises2Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/exercises/RestAssuredExercises3Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/exercises/RestAssuredExercises3Test.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -25,8 +24,8 @@
       <file leaf-file-name="RestAssuredExamples.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/exercises/RestAssuredExamples.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-511">
-              <caret line="185" column="32" lean-forward="true" selection-start-line="181" selection-start-column="7" selection-end-line="185" selection-end-column="32" />
+            <state relative-caret-position="5915">
+              <caret line="246" column="40" selection-start-line="246" selection-start-column="35" selection-end-line="246" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -52,8 +51,8 @@
       <file leaf-file-name="RestAssuredExercises2Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/exercises/RestAssuredExercises2Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="60" column="82" selection-start-line="60" selection-start-column="75" selection-end-line="60" selection-end-column="82" />
+            <state relative-caret-position="286">
+              <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -70,8 +69,17 @@
       <file leaf-file-name="RestAssuredExercises3Test.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/exercises/RestAssuredExercises3Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+            <state relative-caret-position="297">
+              <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Drivers2016.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/mappings/Drivers2016.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -720,12 +728,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RestAssuredExercises2Test_checkCountryForItaly - 2018.07.30 at 12h 31m 33s.xml">
-      <configuration name="RestAssuredExercises2Test.checkCountryForItaly" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RestAssuredExercises2Test_checkCountryForItaly - 2018.07.30 at 12h 32m 00s.xml">
-      <configuration name="RestAssuredExercises2Test.checkCountryForItaly" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RestAssuredExercises2Test_checkCountryForItaly - 2018.07.30 at 12h 32m 27s.xml">
       <configuration name="RestAssuredExercises2Test.checkCountryForItaly" configurationId="JUnit" />
     </history-entry>
@@ -750,6 +752,12 @@
     <history-entry file="RestAssuredExercises3Test - 2018.07.30 at 13h 40m 23s.xml">
       <configuration name="RestAssuredExercises3Test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RestAssuredExercises3Test - 2018.07.30 at 13h 59m 46s.xml">
+      <configuration name="RestAssuredExercises3Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RestAssuredExercises3Test - 2018.07.30 at 14h 03m 23s.xml">
+      <configuration name="RestAssuredExercises3Test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -764,7 +772,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2832244" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31590414" />
       <window_info anchor="bottom" id="Terminal" weight="0.04030501" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
@@ -850,6 +858,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/exercises/RestAssuredExercises2Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/mappings/MaxPitstopsRace1.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="853">
@@ -859,22 +874,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/exercises/RestAssuredExamples.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-511">
-          <caret line="185" column="32" lean-forward="true" selection-start-line="181" selection-start-column="7" selection-end-line="185" selection-end-column="32" />
+        <state relative-caret-position="5915">
+          <caret line="246" column="40" selection-start-line="246" selection-start-column="35" selection-end-line="246" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/exercises/RestAssuredExercises2Test.java">
+    <entry file="file://$PROJECT_DIR$/src/test/resources/mappings/Drivers2016.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="60" column="82" selection-start-line="60" selection-start-column="75" selection-end-line="60" selection-end-column="82" />
+        <state relative-caret-position="81">
+          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/exercises/RestAssuredExercises3Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+        <state relative-caret-position="297">
+          <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
         </state>
       </provider>
     </entry>

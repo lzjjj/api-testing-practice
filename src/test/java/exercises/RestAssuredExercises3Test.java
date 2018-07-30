@@ -65,7 +65,15 @@ public class RestAssuredExercises3Test {
 
 
     static void getNinthDriverId() {
-
+        ninthDriverId = given()
+                .spec( requestSpec )
+                .when()
+                .get("/2016/drivers.json")
+                .then()
+                .contentType(ContentType.JSON)
+                .extract()
+                .path( "MRData.DriverTable.Drivers[8].driverId" );
+        System.out.println(ninthDriverId);
 
     }
 
