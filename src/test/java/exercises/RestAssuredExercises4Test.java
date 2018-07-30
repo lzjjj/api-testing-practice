@@ -5,7 +5,11 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.TimeUnit;
+
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.lessThan;
 
 public class RestAssuredExercises4Test {
 
@@ -22,9 +26,9 @@ public class RestAssuredExercises4Test {
     static void createRequestSpecification() {
 
         requestSpec = new RequestSpecBuilder().
-                setBaseUri("http://localhost").
-                setPort(9876).
-                setBasePath("/api/f1").
+                setBaseUri( "http://localhost" ).
+                setPort( 9876 ).
+                setBasePath( "/api/f1" ).
                 build();
     }
 
@@ -42,6 +46,17 @@ public class RestAssuredExercises4Test {
 
     public static void retrieveOAuthToken() {
 
+        accessToken = given().
+                auth().
+                preemptive().
+                basic("oauth", "gimmeatoken").
+                spec( requestSpec ).
+                when().
+                get("/oauth2/token").
+                then().
+                extract().
+                path("access_token");
+        System.out.println(accessToken);
     }
 
     /*******************************************************
@@ -55,11 +70,15 @@ public class RestAssuredExercises4Test {
 
     @Test
     public void checkNumberOfPayments() {
-
         given().
-                spec(requestSpec).
+                auth().
+                oauth2(accessToken).
+                spec( requestSpec ).
                 when().
-                then();
+                get("/payments").
+                then().
+        assertThat().
+        body( "paymentsCount",equalTo( 4 ) );
     }
 
     /*******************************************************
@@ -73,8 +92,11 @@ public class RestAssuredExercises4Test {
     public void checkResponseTimeFor2014CircuitList() {
 
         given().
-                spec(requestSpec).
                 when().
-                then();
+                spec( requestSpec ).
+                get("/2014/circuits.json").
+                then().
+                assertThat().
+                time(lessThan(100L), TimeUnit.MILLISECONDS);
     }
 }
